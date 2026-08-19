@@ -3,363 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Herbarium Balkon</title>
-<meta name="description" content="Katalog spesimen tanaman balkon pribadi — identifikasi, kebutuhan cahaya &amp; air, dan catatan rawat untuk tiap tanaman, dicatat satu per satu dari foto asli.">
+<title>Herbarium Balkon — Katalog Tanaman Hias &amp; Cara Merawatnya</title>
+<meta name="description" content="Katalog spesimen tanaman hias balkon: identifikasi nama latin &amp; lokal, kebutuhan cahaya dan air, serta panduan cara merawat tiap tanaman — dicatat satu per satu dari foto asli.">
+<link rel="canonical" href="https://tanaman.erwarx.com/">
 <meta name="theme-color" content="#F4F1E6">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tanaman.erwarx.com/">
-<meta property="og:title" content="Herbarium Balkon">
-<meta property="og:description" content="Katalog spesimen tanaman balkon pribadi — identifikasi, kebutuhan cahaya &amp; air, dan catatan rawat untuk tiap tanaman.">
+<meta property="og:title" content="Herbarium Balkon — Katalog Tanaman Hias &amp; Cara Merawatnya">
+<meta property="og:description" content="Katalog spesimen tanaman hias balkon: identifikasi, kebutuhan cahaya &amp; air, dan cara merawat tiap tanaman.">
 <meta property="og:locale" content="id_ID">
 <meta property="og:image" content="https://tanaman.erwarx.com/assets/01-tradescantia.jpg">
 <meta property="og:image:width" content="1000">
 <meta property="og:image:height" content="1777">
 <meta property="og:image:alt" content="Tradescantia zebrina — spesimen No. 01">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Herbarium Balkon">
-<meta name="twitter:description" content="Katalog spesimen tanaman balkon pribadi, dicatat satu per satu dari foto asli.">
+<meta name="twitter:title" content="Herbarium Balkon — Katalog Tanaman Hias &amp; Cara Merawatnya">
+<meta name="twitter:description" content="Katalog spesimen tanaman hias balkon, dicatat satu per satu dari foto asli.">
 <meta name="twitter:image" content="https://tanaman.erwarx.com/assets/01-tradescantia.jpg">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23F4F1E6%22/%3E%3Cpath%20d%3D%22M16%206c8%203%2010%2011%207%2020-8-3-11-11-7-20z%22%20fill%3D%22%232F4230%22/%3E%3Cpath%20d%3D%22M16%208v16%22%20stroke%3D%22%23F4F1E6%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper:#F4F1E6;
-    --card:#FBF9F2;
-    --ink:#23241D;
-    --ink-soft:#6C6C5C;
-    --ink-faint:#6E6C5C;
-    --forest:#2F4230;
-    --clay:#8B4A2F;
-    --seal:#A6432B;
-    --sage:#7C8A5E;
-    --line:#DCD4BE;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    background-image:radial-gradient(circle at 1px 1px, rgba(35,36,29,0.05) 1px, transparent 0);
-    background-size:22px 22px;
-    color:var(--ink);
-    font-family:'Work Sans', sans-serif;
-    font-weight:400;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:960px; margin:0 auto; padding:0 24px 100px;}
-  a{color:inherit;}
-
-  /* ---- Header ---- */
-  header{
-    padding:72px 20px 0;
-    text-align:center;
-  }
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11.5px;
-    letter-spacing:0.22em;
-    text-transform:uppercase;
-    color:var(--clay);
-    margin-bottom:18px;
-  }
-  h1{
-    font-family:'Fraunces', serif;
-    font-optical-sizing:auto;
-    font-weight:600;
-    font-size:clamp(36px, 6.4vw, 58px);
-    line-height:1.05;
-    letter-spacing:-0.01em;
-    margin:0 0 16px;
-    color:var(--forest);
-  }
-  header p.sub{
-    font-size:15px;
-    font-weight:300;
-    color:var(--ink-soft);
-    max-width:440px;
-    margin:0 auto;
-    line-height:1.65;
-  }
-  .sprig{
-    width:30px; height:30px;
-    color:var(--sage);
-    margin:34px auto 0;
-    opacity:0.85;
-  }
-
-  /* ---- Catalog nav ---- */
-  .catalog-nav{
-    margin-top:52px;
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    padding:16px 2px;
-  }
-  .filter-groups{
-    padding-bottom:14px;
-    margin-bottom:14px;
-    border-bottom:1px dashed var(--line);
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-  }
-  .filter-group{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    flex-wrap:wrap;
-  }
-  .filter-label{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    color:var(--ink-faint);
-    flex:0 0 auto;
-  }
-  .filters{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-  }
-  .filters button{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10.5px;
-    text-transform:uppercase;
-    letter-spacing:0.05em;
-    color:var(--ink-soft);
-    background:transparent;
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:6px 14px;
-    cursor:pointer;
-    transition:background 0.15s, color 0.15s, border-color 0.15s;
-  }
-  .filters button:hover{border-color:var(--sage); color:var(--forest);}
-  .filters button.active{background:var(--forest); border-color:var(--forest); color:var(--card);}
-
-  .index-nav{
-    display:flex;
-    flex-wrap:wrap;
-    gap:4px;
-  }
-  .index-nav a{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    letter-spacing:0.03em;
-    text-decoration:none;
-    color:var(--ink-soft);
-    padding:6px 12px;
-    border-radius:20px;
-    white-space:nowrap;
-    transition:background 0.15s, color 0.15s;
-  }
-  .index-nav a:hover{background:rgba(47,66,48,0.08); color:var(--forest);}
-  .index-nav a b{color:var(--ink-faint); font-weight:500; margin-right:6px;}
-  .index-nav a:hover b{color:var(--sage);}
-  .index-nav .empty{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    color:var(--ink-faint);
-    padding:6px 12px;
-  }
-
-  /* ---- Sheets ---- */
-  .sheets{margin-top:8px;}
-  .sheet{
-    scroll-margin-top:24px;
-    padding:56px 0;
-    border-bottom:1px solid var(--line);
-    display:grid;
-    grid-template-columns:1fr;
-    gap:28px;
-  }
-  .sheet:last-child{border-bottom:none;}
-  @media(min-width:760px){
-    .sheet{grid-template-columns:280px 1fr; gap:56px; align-items:start;}
-  }
-
-  .sheet-photo{
-    position:relative;
-    aspect-ratio:4/5;
-    overflow:hidden;
-    background:#e9e4d3;
-    border:1px solid var(--line);
-  }
-  .sheet-photo img{
-    width:100%; height:100%;
-    object-fit:cover;
-    display:block;
-    filter:saturate(0.92) contrast(1.02);
-  }
-  .seal{
-    position:absolute;
-    bottom:-18px; left:20px;
-    width:46px; height:46px;
-    border-radius:50%;
-    border:1.5px solid var(--ink);
-    background:var(--paper);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:13px;
-    letter-spacing:0.02em;
-    color:var(--ink);
-    box-shadow:0 1px 3px rgba(35,36,29,0.12);
-  }
-
-  .label-head{
-    border-bottom:1px dashed var(--line);
-    padding-bottom:16px;
-    margin-bottom:18px;
-  }
-  .latin-row{
-    display:flex;
-    align-items:baseline;
-    gap:9px;
-    flex-wrap:wrap;
-    margin-bottom:5px;
-  }
-  .latin{
-    font-family:'Fraunces', serif;
-    font-style:italic;
-    font-weight:500;
-    font-size:13.5px;
-    color:var(--accent, var(--sage));
-  }
-  .family{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10px;
-    letter-spacing:0.03em;
-    color:var(--ink-faint);
-  }
-  .common{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:25px;
-    color:var(--forest);
-    line-height:1.2;
-    margin:0 0 8px;
-  }
-  .meta-row{
-    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
-  }
-  .local{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    letter-spacing:0.02em;
-    color:var(--clay);
-  }
-  .loc-tag{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10.5px;
-    letter-spacing:0.02em;
-    color:var(--ink-soft);
-    display:inline-flex;
-    align-items:center;
-    gap:5px;
-  }
-  .loc-tag .dot{
-    width:6px; height:6px;
-    border-radius:50%;
-    background:currentColor;
-    display:inline-block;
-  }
-  .loc-tag.indoor .dot{background:transparent; border:1.4px solid currentColor;}
-  .media-tag{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10.5px;
-    letter-spacing:0.02em;
-    color:var(--ink-soft);
-    display:inline-flex;
-    align-items:center;
-    gap:5px;
-  }
-  .media-tag .dot{
-    width:6px; height:6px;
-    border-radius:50%;
-    display:inline-block;
-  }
-  .media-tag.air .dot{background:var(--sage);}
-  .media-tag.darat .dot{background:transparent; border:1.4px solid var(--clay);}
-  .media-tag.keduanya .dot{background:conic-gradient(var(--sage) 0 50%, var(--clay) 50% 100%);}
-  .since-tag{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10.5px;
-    letter-spacing:0.02em;
-    color:var(--ink-faint);
-  }
-
-  .trait{
-    font-size:14px;
-    font-weight:300;
-    color:var(--ink-soft);
-    line-height:1.6;
-    margin:0 0 20px;
-  }
-
-  .care{margin:0 0 4px; display:flex; flex-direction:column; gap:11px;}
-  .care-row{
-    display:grid;
-    grid-template-columns:78px 1fr;
-    gap:14px;
-    align-items:baseline;
-  }
-  .care-row dt{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    color:var(--ink-faint);
-    margin:0;
-  }
-  .care-row dd{
-    font-size:13.5px;
-    line-height:1.55;
-    color:var(--ink);
-    margin:0;
-  }
-
-  .note{
-    margin-top:18px;
-    padding-top:15px;
-    border-top:1px dashed var(--line);
-    font-size:12.5px;
-    line-height:1.6;
-    color:var(--ink-soft);
-  }
-  .note .tag{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    color:var(--ink);
-    margin-right:6px;
-  }
-
-  /* ---- Footer ---- */
-  footer{
-    text-align:center;
-    margin-top:64px;
-    padding-top:32px;
-    border-top:1px solid var(--line);
-  }
-  footer p{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    color:var(--ink-faint);
-    letter-spacing:0.05em;
-    margin:0;
-  }
-</style>
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://tanaman.erwarx.com/#website",
+      "url": "https://tanaman.erwarx.com/",
+      "name": "Herbarium Balkon",
+      "description": "Katalog spesimen tanaman hias balkon pribadi dengan panduan cara merawat tiap tanaman.",
+      "inLanguage": "id-ID"
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://tanaman.erwarx.com/#specimens",
+      "name": "Katalog Spesimen Tanaman",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Tradescantia zebrina (Wandering Jew / Adam Hawa Rambat)","url":"https://tanaman.erwarx.com/cara-merawat-wandering-jew.html"},
+        {"@type":"ListItem","position":2,"name":"Asparagus setaceus (Asparagus Fern / Pakis Asparagus)","url":"https://tanaman.erwarx.com/cara-merawat-asparagus-fern.html"},
+        {"@type":"ListItem","position":3,"name":"Philodendron hederaceum 'Brasil'","url":"https://tanaman.erwarx.com/cara-merawat-philodendron-brasil.html"},
+        {"@type":"ListItem","position":4,"name":"Monstera adansonii var. (Monstera Variegata / Janda Bolong Variegata)","url":"https://tanaman.erwarx.com/cara-merawat-monstera-variegata.html"},
+        {"@type":"ListItem","position":5,"name":"Epipremnum aureum 'Marble Queen' (Pothos Marble Queen / Sirih Gading Marmer)","url":"https://tanaman.erwarx.com/cara-merawat-pothos-marble-queen.html"},
+        {"@type":"ListItem","position":6,"name":"Aglaonema sp. (Chinese Evergreen / Sri Rejeki)","url":"https://tanaman.erwarx.com/cara-merawat-aglaonema-sri-rejeki.html"}
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="wrap">
 
   <header>
     <div class="eyebrow">Herbarium Pribadi · Balkon</div>
-    <h1>Katalog Spesimen</h1>
-    <p class="sub">Identifikasi dan panduan rawat untuk koleksi tanaman di balkon — dicatat satu per satu, dari foto asli, seiring koleksi bertambah.</p>
+    <h1>Katalog Spesimen Tanaman</h1>
+    <p class="sub">Identifikasi dan panduan cara merawat koleksi tanaman hias di balkon — dicatat satu per satu, dari foto asli, seiring koleksi bertambah.</p>
     <svg class="sprig" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
       <path d="M24 44V14"/>
       <path d="M24 30c-6-2-10-7-10-14 7 0 12 4 14 10"/>
@@ -372,181 +73,258 @@
     <div class="filter-groups">
       <div class="filter-group">
         <span class="filter-label">Lokasi</span>
-        <div class="filters" id="filtersLoc"></div>
+        <div class="filters" id="filtersLoc">
+          <button data-filter="all" class="active">Semua</button>
+          <button data-filter="indoor">Indoor</button>
+          <button data-filter="outdoor">Indoor / Outdoor</button>
+        </div>
       </div>
       <div class="filter-group">
         <span class="filter-label">Media tanam</span>
-        <div class="filters" id="filtersMedia"></div>
+        <div class="filters" id="filtersMedia">
+          <button data-filter="all" class="active">Semua</button>
+          <button data-filter="air">Tanaman Air</button>
+          <button data-filter="darat">Tanaman Darat</button>
+        </div>
       </div>
     </div>
-    <nav class="index-nav" id="indexNav"></nav>
+    <nav class="index-nav" id="indexNav">
+      <a href="#s01" data-loc="outdoor" data-media="keduanya"><b>01</b>Wandering Jew</a>
+      <a href="#s02" data-loc="outdoor" data-media="darat"><b>02</b>Asparagus Fern</a>
+      <a href="#s03" data-loc="indoor" data-media="keduanya"><b>03</b>Philodendron Brasil</a>
+      <a href="#s04" data-loc="indoor" data-media="keduanya"><b>04</b>Monstera Variegata</a>
+      <a href="#s05" data-loc="outdoor" data-media="keduanya"><b>05</b>Pothos Marble Queen</a>
+      <a href="#s06" data-loc="indoor" data-media="keduanya"><b>06</b>Chinese Evergreen</a>
+    </nav>
   </div>
 
-  <div class="sheets" id="sheets"></div>
+  <div class="sheets" id="sheets">
+
+    <article class="sheet" id="s01" data-loc="outdoor" data-media="keduanya">
+      <div class="sheet-photo">
+        <img src="assets/01-tradescantia.jpg" alt="Tradescantia zebrina" loading="lazy">
+        <span class="seal">01</span>
+      </div>
+      <div class="sheet-label" style="--accent:#6B3F52">
+        <div class="label-head">
+          <div class="latin-row">
+            <span class="latin">Tradescantia zebrina</span>
+            <span class="family">Fam. Commelinaceae</span>
+          </div>
+          <h2 class="common">Wandering Jew</h2>
+          <div class="meta-row">
+            <span class="local">Adam Hawa Rambat</span>
+            <span class="loc-tag outdoor"><span class="dot"></span>Indoor / Outdoor teduh</span>
+            <span class="media-tag keduanya"><span class="dot"></span>Keduanya</span>
+            <span class="since-tag">Sejak 18 Agustus 2026</span>
+          </div>
+        </div>
+        <p class="trait">Daun bergaris perak-hijau dengan bagian bawah keunguan, tumbuh merunduk/menjuntai.</p>
+        <dl class="care">
+          <div class="care-row"><dt>Cahaya</dt><dd>Terang tidak langsung — sedikit sinar pagi membuat warna makin cerah</dd></div>
+          <div class="care-row"><dt>Air</dt><dd>Siram saat lapisan atas tanah sudah kering</dd></div>
+        </dl>
+        <p class="note"><span class="tag">Catatan</span>rutin dipotong ujungnya biar rimbun, gampang diperbanyak lewat stek batang.</p>
+        <a class="detail-link" href="cara-merawat-wandering-jew.html">Cara merawat Wandering Jew, lengkap →</a>
+      </div>
+    </article>
+
+    <article class="sheet" id="s02" data-loc="outdoor" data-media="darat">
+      <div class="sheet-photo">
+        <img src="assets/02-asparagus.jpg" alt="Asparagus setaceus" loading="lazy">
+        <span class="seal">02</span>
+      </div>
+      <div class="sheet-label" style="--accent:#4E6B3A">
+        <div class="label-head">
+          <div class="latin-row">
+            <span class="latin">Asparagus setaceus</span>
+            <span class="family">Fam. Asparagaceae</span>
+          </div>
+          <h2 class="common">Asparagus Fern</h2>
+          <div class="meta-row">
+            <span class="local">Pakis Asparagus</span>
+            <span class="loc-tag outdoor"><span class="dot"></span>Indoor / Outdoor teduh</span>
+            <span class="media-tag darat"><span class="dot"></span>Tanaman Darat</span>
+            <span class="since-tag">Sejak 18 Agustus 2026</span>
+          </div>
+        </div>
+        <p class="trait">Daun halus menyerupai bulu atau rerumputan — bukan pakis sejati, masih kerabat asparagus.</p>
+        <dl class="care">
+          <div class="care-row"><dt>Cahaya</dt><dd>Terang tidak langsung, hindari terik siang langsung</dd></div>
+          <div class="care-row"><dt>Air</dt><dd>Jaga tanah tetap lembap, drainase pot harus baik</dd></div>
+        </dl>
+        <p class="note"><span class="tag">Catatan</span>beracun bila tertelan hewan peliharaan — taruh jauh dari jangkauan kucing/anjing.</p>
+        <a class="detail-link" href="cara-merawat-asparagus-fern.html">Cara merawat Asparagus Fern, lengkap →</a>
+      </div>
+    </article>
+
+    <article class="sheet" id="s03" data-loc="indoor" data-media="keduanya">
+      <div class="sheet-photo">
+        <img src="assets/03-philodendron.jpg" alt="Philodendron hederaceum Brasil" loading="lazy">
+        <span class="seal">03</span>
+      </div>
+      <div class="sheet-label" style="--accent:#5C7A38">
+        <div class="label-head">
+          <div class="latin-row">
+            <span class="latin">Philodendron hederaceum 'Brasil'</span>
+            <span class="family">Fam. Araceae</span>
+          </div>
+          <h2 class="common">Philodendron Brasil</h2>
+          <div class="meta-row">
+            <span class="local">Filodendron Brasil</span>
+            <span class="loc-tag indoor"><span class="dot"></span>Indoor</span>
+            <span class="media-tag keduanya"><span class="dot"></span>Keduanya</span>
+            <span class="since-tag">Sejak 18 Agustus 2026</span>
+          </div>
+        </div>
+        <p class="trait">Daun hati mengilap dengan garis kuning-hijau di tengah. Tipe merambat.</p>
+        <dl class="care">
+          <div class="care-row"><dt>Cahaya</dt><dd>Terang tidak langsung — makin terang, garis kuningnya makin tajam</dd></div>
+          <div class="care-row"><dt>Air</dt><dd>Siram saat 2–3 cm lapisan atas tanah kering</dd></div>
+        </dl>
+        <p class="note"><span class="tag">Catatan</span>beri tiang/moss pole kalau mau dirambatkan naik, atau biarkan menjuntai dari pot gantung.</p>
+        <a class="detail-link" href="cara-merawat-philodendron-brasil.html">Cara merawat Philodendron Brasil, lengkap →</a>
+      </div>
+    </article>
+
+    <article class="sheet" id="s04" data-loc="indoor" data-media="keduanya">
+      <div class="sheet-photo">
+        <img src="assets/04-monstera.jpg" alt="Monstera adansonii variegata" loading="lazy">
+        <span class="seal">04</span>
+      </div>
+      <div class="sheet-label" style="--accent:#3D6B4A">
+        <div class="label-head">
+          <div class="latin-row">
+            <span class="latin">Monstera adansonii <em>var.</em></span>
+            <span class="family">Fam. Araceae</span>
+          </div>
+          <h2 class="common">Monstera Variegata</h2>
+          <div class="meta-row">
+            <span class="local">Janda Bolong Variegata</span>
+            <span class="loc-tag indoor"><span class="dot"></span>Indoor / teduh</span>
+            <span class="media-tag keduanya"><span class="dot"></span>Keduanya</span>
+            <span class="since-tag">Sejak 18 Agustus 2026</span>
+          </div>
+        </div>
+        <p class="trait">Daun berlubang (fenestrasi) dengan corak marmer putih-krem.</p>
+        <dl class="care">
+          <div class="care-row"><dt>Cahaya</dt><dd>Lebih terang dari Monstera biasa, tapi tetap hindari matahari langsung</dd></div>
+          <div class="care-row"><dt>Air</dt><dd>Tanah lembap tapi porous, suka kelembapan udara tinggi</dd></div>
+        </dl>
+        <p class="note"><span class="tag">Catatan</span>bagian putih total rawan terbakar sinar langsung — potong daun yang nyaris tanpa klorofil.</p>
+        <a class="detail-link" href="cara-merawat-monstera-variegata.html">Cara merawat Monstera Variegata, lengkap →</a>
+      </div>
+    </article>
+
+    <article class="sheet" id="s05" data-loc="outdoor" data-media="keduanya">
+      <div class="sheet-photo">
+        <img src="assets/05-pothos.jpg" alt="Epipremnum aureum Marble Queen" loading="lazy">
+        <span class="seal">05</span>
+      </div>
+      <div class="sheet-label" style="--accent:#5C7A38">
+        <div class="label-head">
+          <div class="latin-row">
+            <span class="latin">Epipremnum aureum 'Marble Queen'</span>
+            <span class="family">Fam. Araceae</span>
+          </div>
+          <h2 class="common">Pothos Marble Queen</h2>
+          <div class="meta-row">
+            <span class="local">Sirih Gading Marmer</span>
+            <span class="loc-tag outdoor"><span class="dot"></span>Indoor / teras teduh</span>
+            <span class="media-tag keduanya"><span class="dot"></span>Keduanya</span>
+            <span class="since-tag">Sejak 18 Agustus 2026</span>
+          </div>
+        </div>
+        <p class="trait">Daun hati besar dengan corak krem-hijau yang dominan.</p>
+        <dl class="care">
+          <div class="care-row"><dt>Cahaya</dt><dd>Penting — kurang cahaya bikin variegasi hilang dan balik hijau polos</dd></div>
+          <div class="care-row"><dt>Air</dt><dd>Siram saat tanah kering, cukup toleran kalau telat disiram</dd></div>
+        </dl>
+        <p class="note"><span class="tag">Catatan</span>salah satu pothos paling gampang dirawat — cocok buat pemula.</p>
+        <a class="detail-link" href="cara-merawat-pothos-marble-queen.html">Cara merawat Pothos Marble Queen, lengkap →</a>
+      </div>
+    </article>
+
+    <article class="sheet" id="s06" data-loc="indoor" data-media="keduanya">
+      <div class="sheet-photo">
+        <img src="assets/06-aglaonema.jpg" alt="Aglaonema sp." loading="lazy">
+        <span class="seal">06</span>
+      </div>
+      <div class="sheet-label" style="--accent:#3D5C3D">
+        <div class="label-head">
+          <div class="latin-row">
+            <span class="latin">Aglaonema sp.</span>
+            <span class="family">Fam. Araceae</span>
+          </div>
+          <h2 class="common">Chinese Evergreen</h2>
+          <div class="meta-row">
+            <span class="local">Sri Rejeki</span>
+            <span class="loc-tag indoor"><span class="dot"></span>Indoor sejati</span>
+            <span class="media-tag keduanya"><span class="dot"></span>Keduanya</span>
+            <span class="since-tag">Sejak 18 Agustus 2026</span>
+          </div>
+        </div>
+        <p class="trait">Daun hijau tebal dengan pola urat hijau muda yang kontras.</p>
+        <dl class="care">
+          <div class="care-row"><dt>Cahaya</dt><dd>Toleran cahaya rendah-sedang, hindari matahari langsung</dd></div>
+          <div class="care-row"><dt>Air</dt><dd>Secukupnya — biarkan agak kering di antara penyiraman</dd></div>
+        </dl>
+        <p class="note"><span class="tag">Catatan</span>sensitif suhu dingin dan angin AC langsung — paling nyaman di dalam ruangan.</p>
+        <a class="detail-link" href="cara-merawat-aglaonema-sri-rejeki.html">Cara merawat Aglaonema / Sri Rejeki, lengkap →</a>
+      </div>
+    </article>
+
+  </div>
 
   <footer>
-    <p id="footerNote"></p>
+    <p id="footerNote">Katalog pribadi · 6 spesimen tercatat · terus bertambah</p>
   </footer>
 
 </div>
 
 <script>
-  const specimens = [
-    {
-      no:'01', anchor:'s01', since:'2026-08-18', habitat:'keduanya',
-      latin:'Tradescantia zebrina', family:'Commelinaceae', common:'Wandering Jew', local:'Adam Hawa Rambat',
-      accent:'#6B3F52', image:'assets/01-tradescantia.jpg', alt:'Tradescantia zebrina',
-      locType:'outdoor', locLabel:'Indoor / Outdoor teduh',
-      trait:'Daun bergaris perak-hijau dengan bagian bawah keunguan, tumbuh merunduk/menjuntai.',
-      light:'Terang tidak langsung — sedikit sinar pagi membuat warna makin cerah',
-      water:'Siram saat lapisan atas tanah sudah kering',
-      note:'rutin dipotong ujungnya biar rimbun, gampang diperbanyak lewat stek batang.'
-    },
-    {
-      no:'02', anchor:'s02', since:'2026-08-18', habitat:'darat',
-      latin:'Asparagus setaceus', family:'Asparagaceae', common:'Asparagus Fern', local:'Pakis Asparagus',
-      accent:'#4E6B3A', image:'assets/02-asparagus.jpg', alt:'Asparagus setaceus',
-      locType:'outdoor', locLabel:'Indoor / Outdoor teduh',
-      trait:'Daun halus menyerupai bulu atau rerumputan — bukan pakis sejati, masih kerabat asparagus.',
-      light:'Terang tidak langsung, hindari terik siang langsung',
-      water:'Jaga tanah tetap lembap, drainase pot harus baik',
-      note:'beracun bila tertelan hewan peliharaan — taruh jauh dari jangkauan kucing/anjing.'
-    },
-    {
-      no:'03', anchor:'s03', since:'2026-08-18', habitat:'keduanya',
-      latin:"Philodendron hederaceum 'Brasil'", family:'Araceae', common:'Philodendron Brasil', local:'Filodendron Brasil',
-      accent:'#5C7A38', image:'assets/03-philodendron.jpg', alt:'Philodendron hederaceum Brasil',
-      locType:'indoor', locLabel:'Indoor',
-      trait:'Daun hati mengilap dengan garis kuning-hijau di tengah. Tipe merambat.',
-      light:'Terang tidak langsung — makin terang, garis kuningnya makin tajam',
-      water:'Siram saat 2–3 cm lapisan atas tanah kering',
-      note:'beri tiang/moss pole kalau mau dirambatkan naik, atau biarkan menjuntai dari pot gantung.'
-    },
-    {
-      no:'04', anchor:'s04', since:'2026-08-18', habitat:'keduanya',
-      latin:'Monstera adansonii', latinSuffix:'var.', family:'Araceae', common:'Monstera Variegata', local:'Janda Bolong Variegata',
-      accent:'#3D6B4A', image:'assets/04-monstera.jpg', alt:'Monstera adansonii variegata',
-      locType:'indoor', locLabel:'Indoor / teduh',
-      trait:'Daun berlubang (fenestrasi) dengan corak marmer putih-krem.',
-      light:'Lebih terang dari Monstera biasa, tapi tetap hindari matahari langsung',
-      water:'Tanah lembap tapi porous, suka kelembapan udara tinggi',
-      note:'bagian putih total rawan terbakar sinar langsung — potong daun yang nyaris tanpa klorofil.'
-    },
-    {
-      no:'05', anchor:'s05', since:'2026-08-18', habitat:'keduanya',
-      latin:"Epipremnum aureum 'Marble Queen'", family:'Araceae', common:'Pothos Marble Queen', local:'Sirih Gading Marmer',
-      accent:'#5C7A38', image:'assets/05-pothos.jpg', alt:'Epipremnum aureum Marble Queen',
-      locType:'outdoor', locLabel:'Indoor / teras teduh',
-      trait:'Daun hati besar dengan corak krem-hijau yang dominan.',
-      light:'Penting — kurang cahaya bikin variegasi hilang dan balik hijau polos',
-      water:'Siram saat tanah kering, cukup toleran kalau telat disiram',
-      note:'salah satu pothos paling gampang dirawat — cocok buat pemula.'
-    },
-    {
-      no:'06', anchor:'s06', since:'2026-08-18', habitat:'keduanya',
-      latin:'Aglaonema sp.', family:'Araceae', common:'Chinese Evergreen', local:'Sri Rejeki',
-      accent:'#3D5C3D', image:'assets/06-aglaonema.jpg', alt:'Aglaonema sp.',
-      locType:'indoor', locLabel:'Indoor sejati',
-      trait:'Daun hijau tebal dengan pola urat hijau muda yang kontras.',
-      light:'Toleran cahaya rendah-sedang, hindari matahari langsung',
-      water:'Secukupnya — biarkan agak kering di antara penyiraman',
-      note:'sensitif suhu dingin dan angin AC langsung — paling nyaman di dalam ruangan.'
-    }
-  ];
+  const filtersLoc = document.getElementById('filtersLoc');
+  const filtersMedia = document.getElementById('filtersMedia');
+  const sheets = Array.from(document.querySelectorAll('.sheet'));
+  const navLinks = Array.from(document.querySelectorAll('#indexNav a'));
+  const footerNote = document.getElementById('footerNote');
+  const total = sheets.length;
 
-  const locFilterDefs = [
-    {key:'all', label:'Semua'},
-    {key:'indoor', label:'Indoor'},
-    {key:'outdoor', label:'Indoor / Outdoor'}
-  ];
-  const mediaFilterDefs = [
-    {key:'all', label:'Semua'},
-    {key:'air', label:'Tanaman Air'},
-    {key:'darat', label:'Tanaman Darat'}
-  ];
-  const mediaLabels = {air:'Tanaman Air', darat:'Tanaman Darat', keduanya:'Keduanya'};
   let activeLocFilter = 'all';
   let activeMediaFilter = 'all';
 
-  const idMonths = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
-  function formatSince(iso){
-    const [y, m, d] = iso.split('-').map(Number);
-    return `Sejak ${d} ${idMonths[m - 1]} ${y}`;
+  function matches(el){
+    const loc = el.dataset.loc, media = el.dataset.media;
+    return (activeLocFilter === 'all' || loc === activeLocFilter) &&
+           (activeMediaFilter === 'all' || media === activeMediaFilter || media === 'keduanya');
   }
 
-  function render(){
-    const filtersLoc = document.getElementById('filtersLoc');
-    const filtersMedia = document.getElementById('filtersMedia');
-    const nav = document.getElementById('indexNav');
-    const sheets = document.getElementById('sheets');
-    const footerNote = document.getElementById('footerNote');
-
-    const visible = specimens.filter(s =>
-      (activeLocFilter === 'all' || s.locType === activeLocFilter) &&
-      (activeMediaFilter === 'all' || s.habitat === activeMediaFilter || s.habitat === 'keduanya')
-    );
-
-    filtersLoc.innerHTML = locFilterDefs.map(f =>
-      `<button data-filter="${f.key}" class="${f.key === activeLocFilter ? 'active' : ''}">${f.label}</button>`
-    ).join('');
-    filtersMedia.innerHTML = mediaFilterDefs.map(f =>
-      `<button data-filter="${f.key}" class="${f.key === activeMediaFilter ? 'active' : ''}">${f.label}</button>`
-    ).join('');
-
-    nav.innerHTML = visible.length ? visible.map(s =>
-      `<a href="#${s.anchor}"><b>${s.no}</b>${s.common}</a>`
-    ).join('') : `<span class="empty">Tidak ada spesimen untuk filter ini.</span>`;
-
-    sheets.innerHTML = visible.map(s => `
-      <article class="sheet" id="${s.anchor}">
-        <div class="sheet-photo">
-          <img src="${s.image}" alt="${s.alt}" loading="lazy">
-          <span class="seal">${s.no}</span>
-        </div>
-        <div class="sheet-label" style="--accent:${s.accent}">
-          <div class="label-head">
-            <div class="latin-row">
-              <span class="latin">${s.latin}${s.latinSuffix ? ' <em>' + s.latinSuffix + '</em>' : ''}</span>
-              <span class="family">Fam. ${s.family}</span>
-            </div>
-            <h2 class="common">${s.common}</h2>
-            <div class="meta-row">
-              <span class="local">${s.local}</span>
-              <span class="loc-tag ${s.locType}"><span class="dot"></span>${s.locLabel}</span>
-              <span class="media-tag ${s.habitat}"><span class="dot"></span>${mediaLabels[s.habitat]}</span>
-              <span class="since-tag">${formatSince(s.since)}</span>
-            </div>
-          </div>
-          <p class="trait">${s.trait}</p>
-          <dl class="care">
-            <div class="care-row"><dt>Cahaya</dt><dd>${s.light}</dd></div>
-            <div class="care-row"><dt>Air</dt><dd>${s.water}</dd></div>
-          </dl>
-          <p class="note"><span class="tag">Catatan</span>${s.note}</p>
-        </div>
-      </article>
-    `).join('');
+  function applyFilters(){
+    let visible = 0;
+    sheets.forEach(el => {
+      const show = matches(el);
+      el.classList.toggle('is-hidden', !show);
+      if(show) visible++;
+    });
+    navLinks.forEach(a => { a.classList.toggle('is-hidden', !matches(a)); });
 
     const filtering = activeLocFilter !== 'all' || activeMediaFilter !== 'all';
     footerNote.textContent = filtering
-      ? `Katalog pribadi · menampilkan ${visible.length} dari ${specimens.length} spesimen`
-      : `Katalog pribadi · ${specimens.length} spesimen tercatat · terus bertambah`;
+      ? `Katalog pribadi · menampilkan ${visible} dari ${total} spesimen`
+      : `Katalog pribadi · ${total} spesimen tercatat · terus bertambah`;
   }
 
-  document.getElementById('filtersLoc').addEventListener('click', e => {
-    const btn = e.target.closest('button[data-filter]');
-    if(!btn) return;
-    activeLocFilter = btn.dataset.filter;
-    render();
-  });
-  document.getElementById('filtersMedia').addEventListener('click', e => {
-    const btn = e.target.closest('button[data-filter]');
-    if(!btn) return;
-    activeMediaFilter = btn.dataset.filter;
-    render();
-  });
-
-  render();
+  function wireFilterGroup(container, setter){
+    container.addEventListener('click', e => {
+      const btn = e.target.closest('button[data-filter]');
+      if(!btn) return;
+      setter(btn.dataset.filter);
+      Array.from(container.querySelectorAll('button')).forEach(b => b.classList.toggle('active', b === btn));
+      applyFilters();
+    });
+  }
+  wireFilterGroup(filtersLoc, v => activeLocFilter = v);
+  wireFilterGroup(filtersMedia, v => activeMediaFilter = v);
 </script>
 </body>
 </html>
