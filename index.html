@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Herbarium Balkon</title>
+<meta name="description" content="Katalog spesimen tanaman balkon pribadi — identifikasi, kebutuhan cahaya &amp; air, dan catatan rawat untuk tiap tanaman, dicatat satu per satu dari foto asli.">
+<meta name="theme-color" content="#F4F1E6">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Herbarium Balkon">
+<meta property="og:description" content="Katalog spesimen tanaman balkon pribadi — identifikasi, kebutuhan cahaya &amp; air, dan catatan rawat untuk tiap tanaman.">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Herbarium Balkon">
+<meta name="twitter:description" content="Katalog spesimen tanaman balkon pribadi, dicatat satu per satu dari foto asli.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23F4F1E6%22/%3E%3Cpath%20d%3D%22M16%206c8%203%2010%2011%207%2020-8-3-11-11-7-20z%22%20fill%3D%22%232F4230%22/%3E%3Cpath%20d%3D%22M16%208v16%22%20stroke%3D%22%23F4F1E6%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -150,14 +160,25 @@
     padding-bottom:16px;
     margin-bottom:18px;
   }
+  .latin-row{
+    display:flex;
+    align-items:baseline;
+    gap:9px;
+    flex-wrap:wrap;
+    margin-bottom:5px;
+  }
   .latin{
     font-family:'Fraunces', serif;
     font-style:italic;
     font-weight:500;
     font-size:13.5px;
     color:var(--accent, var(--sage));
-    display:block;
-    margin-bottom:5px;
+  }
+  .family{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    letter-spacing:0.03em;
+    color:var(--ink-faint);
   }
   .common{
     font-family:'Fraunces', serif;
@@ -285,7 +306,7 @@
   const specimens = [
     {
       no:'01', anchor:'s01',
-      latin:'Tradescantia zebrina', common:'Wandering Jew', local:'Adam Hawa Rambat',
+      latin:'Tradescantia zebrina', family:'Commelinaceae', common:'Wandering Jew', local:'Adam Hawa Rambat',
       accent:'#6B3F52', image:'assets/01-tradescantia.jpg', alt:'Tradescantia zebrina',
       locType:'outdoor', locLabel:'Indoor / Outdoor teduh',
       trait:'Daun bergaris perak-hijau dengan bagian bawah keunguan, tumbuh merunduk/menjuntai.',
@@ -295,7 +316,7 @@
     },
     {
       no:'02', anchor:'s02',
-      latin:'Asparagus setaceus', common:'Asparagus Fern', local:'Pakis Asparagus',
+      latin:'Asparagus setaceus', family:'Asparagaceae', common:'Asparagus Fern', local:'Pakis Asparagus',
       accent:'#4E6B3A', image:'assets/02-asparagus.jpg', alt:'Asparagus setaceus',
       locType:'outdoor', locLabel:'Indoor / Outdoor teduh',
       trait:'Daun halus menyerupai bulu atau rerumputan — bukan pakis sejati, masih kerabat asparagus.',
@@ -305,7 +326,7 @@
     },
     {
       no:'03', anchor:'s03',
-      latin:"Philodendron hederaceum 'Brasil'", common:'Philodendron Brasil', local:'Filodendron Brasil',
+      latin:"Philodendron hederaceum 'Brasil'", family:'Araceae', common:'Philodendron Brasil', local:'Filodendron Brasil',
       accent:'#5C7A38', image:'assets/03-philodendron.jpg', alt:'Philodendron hederaceum Brasil',
       locType:'indoor', locLabel:'Indoor',
       trait:'Daun hati mengilap dengan garis kuning-hijau di tengah. Tipe merambat.',
@@ -315,7 +336,7 @@
     },
     {
       no:'04', anchor:'s04',
-      latin:'Monstera adansonii', latinSuffix:'var.', common:'Monstera Variegata', local:'Janda Bolong Variegata',
+      latin:'Monstera adansonii', latinSuffix:'var.', family:'Araceae', common:'Monstera Variegata', local:'Janda Bolong Variegata',
       accent:'#3D6B4A', image:'assets/04-monstera.jpg', alt:'Monstera adansonii variegata',
       locType:'indoor', locLabel:'Indoor / teduh',
       trait:'Daun berlubang (fenestrasi) dengan corak marmer putih-krem.',
@@ -325,7 +346,7 @@
     },
     {
       no:'05', anchor:'s05',
-      latin:"Epipremnum aureum 'Marble Queen'", common:'Pothos Marble Queen', local:'Sirih Gading Marmer',
+      latin:"Epipremnum aureum 'Marble Queen'", family:'Araceae', common:'Pothos Marble Queen', local:'Sirih Gading Marmer',
       accent:'#5C7A38', image:'assets/05-pothos.jpg', alt:'Epipremnum aureum Marble Queen',
       locType:'outdoor', locLabel:'Indoor / teras teduh',
       trait:'Daun hati besar dengan corak krem-hijau yang dominan.',
@@ -335,7 +356,7 @@
     },
     {
       no:'06', anchor:'s06',
-      latin:'Aglaonema sp.', common:'Chinese Evergreen', local:'Sri Rejeki',
+      latin:'Aglaonema sp.', family:'Araceae', common:'Chinese Evergreen', local:'Sri Rejeki',
       accent:'#3D5C3D', image:'assets/06-aglaonema.jpg', alt:'Aglaonema sp.',
       locType:'indoor', locLabel:'Indoor sejati',
       trait:'Daun hijau tebal dengan pola urat hijau muda yang kontras.',
@@ -362,7 +383,10 @@
         </div>
         <div class="sheet-label" style="--accent:${s.accent}">
           <div class="label-head">
-            <span class="latin">${s.latin}${s.latinSuffix ? ' <em>' + s.latinSuffix + '</em>' : ''}</span>
+            <div class="latin-row">
+              <span class="latin">${s.latin}${s.latinSuffix ? ' <em>' + s.latinSuffix + '</em>' : ''}</span>
+              <span class="family">Fam. ${s.family}</span>
+            </div>
             <h2 class="common">${s.common}</h2>
             <div class="meta-row">
               <span class="local">${s.local}</span>
