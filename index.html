@@ -96,13 +96,32 @@
     border-bottom:1px solid var(--line);
     padding:16px 2px;
   }
+  .filter-groups{
+    padding-bottom:14px;
+    margin-bottom:14px;
+    border-bottom:1px dashed var(--line);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .filter-group{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .filter-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-faint);
+    flex:0 0 auto;
+  }
   .filters{
     display:flex;
     flex-wrap:wrap;
     gap:8px;
-    padding-bottom:14px;
-    margin-bottom:14px;
-    border-bottom:1px dashed var(--line);
   }
   .filters button{
     font-family:'IBM Plex Mono', monospace;
@@ -247,6 +266,23 @@
     display:inline-block;
   }
   .loc-tag.indoor .dot{background:transparent; border:1.4px solid currentColor;}
+  .media-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.02em;
+    color:var(--ink-soft);
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+  }
+  .media-tag .dot{
+    width:6px; height:6px;
+    border-radius:50%;
+    display:inline-block;
+  }
+  .media-tag.air .dot{background:var(--sage);}
+  .media-tag.darat .dot{background:transparent; border:1.4px solid var(--clay);}
+  .media-tag.keduanya .dot{background:conic-gradient(var(--sage) 0 50%, var(--clay) 50% 100%);}
   .since-tag{
     font-family:'IBM Plex Mono', monospace;
     font-size:10.5px;
@@ -333,7 +369,16 @@
   </header>
 
   <div class="catalog-nav">
-    <div class="filters" id="filters"></div>
+    <div class="filter-groups">
+      <div class="filter-group">
+        <span class="filter-label">Lokasi</span>
+        <div class="filters" id="filtersLoc"></div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Media tanam</span>
+        <div class="filters" id="filtersMedia"></div>
+      </div>
+    </div>
     <nav class="index-nav" id="indexNav"></nav>
   </div>
 
@@ -348,7 +393,7 @@
 <script>
   const specimens = [
     {
-      no:'01', anchor:'s01', since:'2026-08-18',
+      no:'01', anchor:'s01', since:'2026-08-18', habitat:'keduanya',
       latin:'Tradescantia zebrina', family:'Commelinaceae', common:'Wandering Jew', local:'Adam Hawa Rambat',
       accent:'#6B3F52', image:'assets/01-tradescantia.jpg', alt:'Tradescantia zebrina',
       locType:'outdoor', locLabel:'Indoor / Outdoor teduh',
@@ -358,7 +403,7 @@
       note:'rutin dipotong ujungnya biar rimbun, gampang diperbanyak lewat stek batang.'
     },
     {
-      no:'02', anchor:'s02', since:'2026-08-18',
+      no:'02', anchor:'s02', since:'2026-08-18', habitat:'darat',
       latin:'Asparagus setaceus', family:'Asparagaceae', common:'Asparagus Fern', local:'Pakis Asparagus',
       accent:'#4E6B3A', image:'assets/02-asparagus.jpg', alt:'Asparagus setaceus',
       locType:'outdoor', locLabel:'Indoor / Outdoor teduh',
@@ -368,7 +413,7 @@
       note:'beracun bila tertelan hewan peliharaan — taruh jauh dari jangkauan kucing/anjing.'
     },
     {
-      no:'03', anchor:'s03', since:'2026-08-18',
+      no:'03', anchor:'s03', since:'2026-08-18', habitat:'keduanya',
       latin:"Philodendron hederaceum 'Brasil'", family:'Araceae', common:'Philodendron Brasil', local:'Filodendron Brasil',
       accent:'#5C7A38', image:'assets/03-philodendron.jpg', alt:'Philodendron hederaceum Brasil',
       locType:'indoor', locLabel:'Indoor',
@@ -378,7 +423,7 @@
       note:'beri tiang/moss pole kalau mau dirambatkan naik, atau biarkan menjuntai dari pot gantung.'
     },
     {
-      no:'04', anchor:'s04', since:'2026-08-18',
+      no:'04', anchor:'s04', since:'2026-08-18', habitat:'keduanya',
       latin:'Monstera adansonii', latinSuffix:'var.', family:'Araceae', common:'Monstera Variegata', local:'Janda Bolong Variegata',
       accent:'#3D6B4A', image:'assets/04-monstera.jpg', alt:'Monstera adansonii variegata',
       locType:'indoor', locLabel:'Indoor / teduh',
@@ -388,7 +433,7 @@
       note:'bagian putih total rawan terbakar sinar langsung — potong daun yang nyaris tanpa klorofil.'
     },
     {
-      no:'05', anchor:'s05', since:'2026-08-18',
+      no:'05', anchor:'s05', since:'2026-08-18', habitat:'keduanya',
       latin:"Epipremnum aureum 'Marble Queen'", family:'Araceae', common:'Pothos Marble Queen', local:'Sirih Gading Marmer',
       accent:'#5C7A38', image:'assets/05-pothos.jpg', alt:'Epipremnum aureum Marble Queen',
       locType:'outdoor', locLabel:'Indoor / teras teduh',
@@ -398,7 +443,7 @@
       note:'salah satu pothos paling gampang dirawat — cocok buat pemula.'
     },
     {
-      no:'06', anchor:'s06', since:'2026-08-18',
+      no:'06', anchor:'s06', since:'2026-08-18', habitat:'keduanya',
       latin:'Aglaonema sp.', family:'Araceae', common:'Chinese Evergreen', local:'Sri Rejeki',
       accent:'#3D5C3D', image:'assets/06-aglaonema.jpg', alt:'Aglaonema sp.',
       locType:'indoor', locLabel:'Indoor sejati',
@@ -409,12 +454,19 @@
     }
   ];
 
-  const filterDefs = [
+  const locFilterDefs = [
     {key:'all', label:'Semua'},
     {key:'indoor', label:'Indoor'},
     {key:'outdoor', label:'Indoor / Outdoor'}
   ];
-  let activeFilter = 'all';
+  const mediaFilterDefs = [
+    {key:'all', label:'Semua'},
+    {key:'air', label:'Tanaman Air'},
+    {key:'darat', label:'Tanaman Darat'}
+  ];
+  const mediaLabels = {air:'Tanaman Air', darat:'Tanaman Darat', keduanya:'Keduanya'};
+  let activeLocFilter = 'all';
+  let activeMediaFilter = 'all';
 
   const idMonths = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
   function formatSince(iso){
@@ -423,15 +475,22 @@
   }
 
   function render(){
-    const filters = document.getElementById('filters');
+    const filtersLoc = document.getElementById('filtersLoc');
+    const filtersMedia = document.getElementById('filtersMedia');
     const nav = document.getElementById('indexNav');
     const sheets = document.getElementById('sheets');
     const footerNote = document.getElementById('footerNote');
 
-    const visible = specimens.filter(s => activeFilter === 'all' || s.locType === activeFilter);
+    const visible = specimens.filter(s =>
+      (activeLocFilter === 'all' || s.locType === activeLocFilter) &&
+      (activeMediaFilter === 'all' || s.habitat === activeMediaFilter || s.habitat === 'keduanya')
+    );
 
-    filters.innerHTML = filterDefs.map(f =>
-      `<button data-filter="${f.key}" class="${f.key === activeFilter ? 'active' : ''}">${f.label}</button>`
+    filtersLoc.innerHTML = locFilterDefs.map(f =>
+      `<button data-filter="${f.key}" class="${f.key === activeLocFilter ? 'active' : ''}">${f.label}</button>`
+    ).join('');
+    filtersMedia.innerHTML = mediaFilterDefs.map(f =>
+      `<button data-filter="${f.key}" class="${f.key === activeMediaFilter ? 'active' : ''}">${f.label}</button>`
     ).join('');
 
     nav.innerHTML = visible.length ? visible.map(s =>
@@ -454,6 +513,7 @@
             <div class="meta-row">
               <span class="local">${s.local}</span>
               <span class="loc-tag ${s.locType}"><span class="dot"></span>${s.locLabel}</span>
+              <span class="media-tag ${s.habitat}"><span class="dot"></span>${mediaLabels[s.habitat]}</span>
               <span class="since-tag">${formatSince(s.since)}</span>
             </div>
           </div>
@@ -467,15 +527,22 @@
       </article>
     `).join('');
 
-    footerNote.textContent = activeFilter === 'all'
-      ? `Katalog pribadi · ${specimens.length} spesimen tercatat · terus bertambah`
-      : `Katalog pribadi · menampilkan ${visible.length} dari ${specimens.length} spesimen`;
+    const filtering = activeLocFilter !== 'all' || activeMediaFilter !== 'all';
+    footerNote.textContent = filtering
+      ? `Katalog pribadi · menampilkan ${visible.length} dari ${specimens.length} spesimen`
+      : `Katalog pribadi · ${specimens.length} spesimen tercatat · terus bertambah`;
   }
 
-  document.getElementById('filters').addEventListener('click', e => {
+  document.getElementById('filtersLoc').addEventListener('click', e => {
     const btn = e.target.closest('button[data-filter]');
     if(!btn) return;
-    activeFilter = btn.dataset.filter;
+    activeLocFilter = btn.dataset.filter;
+    render();
+  });
+  document.getElementById('filtersMedia').addEventListener('click', e => {
+    const btn = e.target.closest('button[data-filter]');
+    if(!btn) return;
+    activeMediaFilter = btn.dataset.filter;
     render();
   });
 
