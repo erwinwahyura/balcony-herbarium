@@ -2,7 +2,7 @@
 
 Personal plant care catalog styled like herbarium specimen tags.
 
-A single-page static site (`index.html`) presenting a balcony plant collection as numbered specimen cards — photo, Latin & common name, light/water care, and care notes — in Indonesian.
+A single-page static site (`index.html`) presenting a balcony plant collection as numbered herbarium specimen sheets — photo, Latin/common/local name, light & water care, and notes — in Indonesian. Design is quiet and editorial (Fraunces serif + Work Sans + IBM Plex Mono, generous whitespace, hairline rules, seal-style specimen numbers) so it stays legible as the collection grows.
 
 ## Specimens
 
@@ -17,10 +17,12 @@ A single-page static site (`index.html`) presenting a balcony plant collection a
 
 ## Structure
 
-- `index.html` — page markup, styles, and content (no build step, no dependencies)
+- `index.html` — styles + a `specimens` array (in an inline `<script>`) that's rendered into specimen sheets and the top index nav on load. No build step, no dependencies.
 - `assets/` — specimen photos (`01-tradescantia.jpg` … `06-aglaonema.jpg`)
 
-> **Note:** `index.html` currently references photos as `images/0N-*.jpg`, but the files live in `assets/0N-*.jpg` directly (no `images` subfolder). Update the `src` paths or move the files to match before the photos will render.
+## Adding a specimen
+
+Add a new object to the `specimens` array in `index.html` (see the existing six for the shape: `no`, `anchor`, `latin`, `common`, `local`, `accent`, `image`, `alt`, `locType`, `locLabel`, `trait`, `light`, `water`, `note`) and drop its photo in `assets/`. The card, index-nav entry, and footer count all update automatically — no markup duplication needed.
 
 ## Usage
 
